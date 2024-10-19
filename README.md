@@ -6,9 +6,7 @@
 
 Puedes probar la aplicación accediendo a la siguiente URL:
 
-```
-https://car-shop-admin-dybsm98.firebaseapp.com/
-```
+[Car-Shop Admin](https://car-shop-admin-dybsm98.firebaseapp.com/)
 
 > **Nota:** Al ingresar, se cargarán automáticamente las credenciales de prueba, pero las reglas de Firebase están configuradas para solo permitir visualización de los datos (sin permisos de escritura ni modificaciones).
 
