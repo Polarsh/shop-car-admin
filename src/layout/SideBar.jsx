@@ -5,6 +5,7 @@ import {
 } from '@headlessui/react'
 import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import { Cog6ToothIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
 import { routeNavigation } from './Routes'
 import LogoComponent from '../components/Logo'
@@ -26,8 +27,8 @@ export default function SideBarComponent() {
               {routeNavigation.map(item => (
                 <li key={item.name}>
                   {!item.children ? (
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       className={classNames(
                         item.current
                           ? 'bg-gray-800 text-white'
@@ -39,7 +40,7 @@ export default function SideBarComponent() {
                         aria-hidden='true'
                       />
                       {item.name}
-                    </a>
+                    </Link>
                   ) : (
                     <Disclosure as='div'>
                       {({ open }) => (
@@ -71,15 +72,14 @@ export default function SideBarComponent() {
                               <li key={subItem.name}>
                                 {/* 44px */}
                                 <DisclosureButton
-                                  as='a'
-                                  href={subItem.href}
+                                  as='div'
                                   className={classNames(
                                     subItem.current
                                       ? 'bg-gray-800 text-white'
                                       : 'text-gray-400 hover:text-white hover:bg-gray-800',
                                     'block rounded-md py-2 pr-2 pl-9 text-sm leading-6'
                                   )}>
-                                  {subItem.name}
+                                  <Link to={subItem.href}>{subItem.name}</Link>
                                 </DisclosureButton>
                               </li>
                             ))}
@@ -93,8 +93,8 @@ export default function SideBarComponent() {
             </ul>
           </li>
           <li className='-mx-6 mt-auto'>
-            <a
-              href='/ajustes'
+            <Link
+              to='/ajustes'
               className='flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white'>
               <Cog6ToothIcon
                 className='h-6 w-6 shrink-0 text-gray-400'
@@ -102,7 +102,7 @@ export default function SideBarComponent() {
               />
               <span className='sr-only'>Configuración</span>
               <span aria-hidden='true'>Configuración</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
